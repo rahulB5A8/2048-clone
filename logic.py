@@ -56,3 +56,45 @@ def compress(arr):
                     pos+=1
 
     return new_arr
+
+def move_up(grid):
+    transposed_grid = transpose(grid)
+    new_grid = compress(transposed_grid)
+    new_grid = merge(new_grid)
+    new_grid = compress(new_grid)
+    final_grid = transpose(new_grid)
+    
+    return final_grid
+
+def move_down(grid):
+    transposed_grid = transpose(grid)
+    reversed_grid = reverse(transposed_grid)
+    new_grid = compress(reversed_grid)
+    new_grid = merge(new_grid)
+    new_grid = compress(new_grid)
+    final_reversed_grid = reverse(new_grid)
+    final_grid = transpose(final_reversed_grid)
+    
+    return final_grid
+
+def move_right(grid):
+    reversed_grid = reverse(grid)
+    new_grid = compress(reversed_grid)
+    new_grid = merge(new_grid)
+    new_grid = compress(new_grid)
+    final_grid = reverse(new_grid)
+    
+    return final_grid
+
+def move_left(grid):
+    new_grid = compress(grid)
+    new_grid = merge(new_grid)
+    new_grid = compress(new_grid)
+    
+    return new_grid
+
+
+
+
+
+
