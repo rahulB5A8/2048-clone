@@ -1,57 +1,58 @@
 import random
+
 def start_game():
-    mat = []
-    for i in range(4):
-        mat.append([0]*4)
-    
-    return mat
+    arr = []
+    for row_index in range(4):
+        arr.append([0]*4)    
+    return arr
 
-def add_new_2(mat):
-    r = random.randint(0,3)
-    c = random.randint(0,3)
-    while(mat[r][c] != 0):
-        r = random.randint(0,3)
-        c = random.randint(0,3)
+def add_new_2(arr):
+    row = random.randint(0,3)
+    col = random.randint(0,3)
+    while(arr[row][col] != 0):
+        row = random.randint(0,3)
+        col = random.randint(0,3)
     
-    mat[r][c] = 2
-    return mat
+    arr[row][col] = 2
+    return arr
 
-def reverse(mat):
-    new_mat = []
-    for i in range(4):
-        new_mat.append([])
-        for j in range(4):
-            new_mat[i].append(mat[i][4-j-1])
+def reverse(arr):
+    new_arr = []
+    for row_index in range(4):
+        new_arr.append([])
+        for col_index in range(4):
+            new_arr[row_index].append(arr[row_index][4-col_index-1])
     
-    return new_mat
+    return new_arr
 
-def transpose(mat):
-    new_mat = []
-    for i in range(4):
-        new_mat.append([])
-        for j in range(4):
-            new_mat[i].append(mat[j][i])
+def transpose(arr):
+    new_arr = []
+    for row_index in range(4):
+        new_arr.append([])
+        for col_index in range(4):
+            new_arr[row_index].append(arr[col_index][row_index])
     
-    return new_mat
+    return new_arr
 
-def merge(mat):
-    for i in range(4):
-        for j in range(3):
-            if mat[i][j] == mat[i][j+1] and mat[i][j]!=0:
-                mat[i][j] = mat[i][j]*2
-                mat[i][j+1] = 0
+def merge(arr):
+    for row_index in range(4):
+        for col_index in range(3):
+            if arr[row_index][col_index] == arr[row_index][col_index+1] and arr[row_index][col_index]!=0:
+                arr[row_index][col_index] = arr[row_index][col_index]*2
+                arr[row_index][col_index+1] = 0    
     
-    return mat
+    return arr
 
-def compress(mat):
-    new_mat = []
-    for i in range(4):
-        new_mat.append([0]*4)
-        for i in range(4):
+def compress(arr):
+    new_arr = []
+    for row_index in range(4):
+        new_arr.append([0]*4)
+        
+        for row_index in range(4):
             pos = 0
-            for j in range(4):
-                if mat[i][j] != 0:
-                    new_mat[i][pos] = mat[i][j]
+            for col_index in range(4):
+                if arr[row_index][col_index] != 0:
+                    new_arr[row_index][pos] = arr[row_index][col_index]
                     pos+=1
 
-    return new_mat
+    return new_arr
