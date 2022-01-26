@@ -131,16 +131,18 @@ arr[2][2] = 2
 arr[3][0] = 4
 arr[3][1] = 8
 arr[2][1] = 4
+print("Press 1 to move up\n" + "Press 2 to move down\n" + "Press 3 to mve left Press\n" + "4 to move right\n")
 inputs = [int(ele) for ele in input().split()]
 for ele in inputs:
     if ele == 1:
-    arr = move_up(arr)
+        arr = move_up(arr)
     elif ele == 2:
-    arr = move_down(arr)
+        arr = move_down(arr)
     elif ele == 3:
-    arr = move_left(arr)
-    else:
-    arr = move_right(arr)
+        arr = move_left(arr)
+    elif ele ==4:
+        arr = move_right(arr)
+    
     print(arr)
 
 
