@@ -9,21 +9,21 @@ Problems faced while designing the solution:-
 To change the stataus of the game. To have the player make the move.
 
 Code walkthrough:-<br />
-#![image](https://user-images.githubusercontent.com/65595618/151183578-335711cf-0764-4751-be1a-c407cc9ac1ae.png)
+![image](https://user-images.githubusercontent.com/65595618/151183578-335711cf-0764-4751-be1a-c407cc9ac1ae.png)<br />
 declaring an empty list then
 appending 4 list each with four
-elements as 0.
+elements as 0.<br />
 
-#![image](https://user-images.githubusercontent.com/65595618/151183841-f3794784-8a89-41c6-9561-9289ea7dd057.png)<br />
+![image](https://user-images.githubusercontent.com/65595618/151183841-f3794784-8a89-41c6-9561-9289ea7dd057.png)<br />
 choosing a random index for row and column. add element in a random cell.
 
 Then all function such as reverse, transpose, merge, compress where made doing what the name suggest
 
 After that functions that provide movement where made.<br />
-#![image](https://user-images.githubusercontent.com/65595618/151185069-e821eeea-69f6-45d6-b90d-774cfef5eeac.png)<br />
+![image](https://user-images.githubusercontent.com/65595618/151185069-e821eeea-69f6-45d6-b90d-774cfef5eeac.png)<br />
 
 This gives the current array and also checks if the game is over or not.<br />
-#![image](https://user-images.githubusercontent.com/65595618/151185193-8df87175-c4e2-4439-9021-f42564544a2f.png)<br />
+![image](https://user-images.githubusercontent.com/65595618/151185193-8df87175-c4e2-4439-9021-f42564544a2f.png)<br />
 
 Finally the main function that runs this program.
 
