@@ -6,7 +6,7 @@ def start_game():
         arr.append([0]*4)    
     return arr
 
-def add_new_2(arr):
+def add_ele(arr):
     row = random.randint(0,3)
     col = random.randint(0,3)
     while(arr[row][col] != 0):
@@ -48,12 +48,12 @@ def compress(arr):
     for row_index in range(4):
         new_arr.append([0]*4)
         
-        for row_index in range(4):
-            pos = 0
-            for col_index in range(4):
-                if arr[row_index][col_index] != 0:
-                    new_arr[row_index][pos] = arr[row_index][col_index]
-                    pos+=1
+    for row_index in range(4):
+        pos = 0
+        for col_index in range(4):
+            if arr[row_index][col_index] != 0:
+                new_arr[row_index][pos] = arr[row_index][col_index]
+                pos+=1
 
     return new_arr
 
@@ -131,18 +131,53 @@ arr[2][2] = 2
 arr[3][0] = 4
 arr[3][1] = 8
 arr[2][1] = 4
-print("Press 1 to move up\n" + "Press 2 to move down\n" + "Press 3 to mve left Press\n" + "4 to move right\n")
-inputs = [int(ele) for ele in input().split()]
-for ele in inputs:
-    if ele == 1:
-        arr = move_up(arr)
-    elif ele == 2:
-        arr = move_down(arr)
-    elif ele == 3:
-        arr = move_left(arr)
-    elif ele ==4:
-        arr = move_right(arr)
-    
-    print(arr)
+print("Press 1 to move up\n" + "Press 2 to move down\n" + "Press 3 to mve left\n" + "Press 4 to move right\n")
 
+while(True):
+    x = input("Press the command : ")
+ 
+    if(x == '1'):
+        arr = move_up(arr)
+        status = get_current_state(arr)
+        print(status)
+ 
+        if(status == '--------Still all to play for--------------'):
+            add_ele(arr)
+ 
+        else:
+            break
+ 
+    # to move down
+    elif(x == '2'):
+        arr = move_down(arr)
+        status = get_current_state(arr)
+        print(status)
+        if(status == '--------Still all to play for--------------'):
+            add_ele(arr)
+        else:
+            break
+ 
+    # to move left
+    elif(x == '3'):
+        arr = move_left(arr)
+        status = get_current_state(arr)
+        print(status)
+        if(status == '--------Still all to play for--------------'):
+            add_ele(arr)
+        else:
+            break
+ 
+    # to move right
+    elif(x == '4'):
+        arr = move_right(arr)
+        status = get_current_state(arr)
+        print(status)
+        if(status == '--------Still all to play for--------------'):
+            add_ele(arr)
+        else:
+            break
+    else:
+        print("Invalid Key Pressed")
+ 
+    print(arr)
 
