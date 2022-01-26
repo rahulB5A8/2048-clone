@@ -93,8 +93,54 @@ def move_left(grid):
     
     return new_grid
 
+def get_current_state(arr):
+    
+    # Anywhere 2048 is present
+    for row_index in range(4):
+        for col_index in range(4):
+            if (arr[row_index][col_index] == 2048):
+                return 'WON!!!!'
+    
+    #Anywhere 0 is present
+    for row_index in range(4):
+        for col_index in range(4):
+            if(arr[row_index][col_index] == 0):
+                return '--------Still all to play for--------------'
 
+    # Every Row and Column except last row and last column
+    for row_index in range(3):
+        for col_index in range(3):
+            if(arr[row_index][col_index] == arr[row_index+1][col_index] or arr[row_index][col_index] == arr[row_index][col_index+1]):
+                return '--------Still all to play for--------------'
 
+    #Last Row
+    for col_index in range(3):
+        if arr[3][col_index] == arr[3][col_index+1]:
+            return '--------Still all to play for--------------'
 
+    #Last Column
+    for row_index in range(3):
+        if arr[row_index][3] == arr[row_index+1][3]:
+            return '--------Still all to play for--------------'
+    
+    return 'LOST'
+
+arr = start_game()
+arr[1][3] = 2
+arr[2][2] = 2
+arr[3][0] = 4
+arr[3][1] = 8
+arr[2][1] = 4
+inputs = [int(ele) for ele in input().split()]
+for ele in inputs:
+    if ele == 1:
+    arr = move_up(arr)
+    elif ele == 2:
+    arr = move_down(arr)
+    elif ele == 3:
+    arr = move_left(arr)
+    else:
+    arr = move_right(arr)
+    print(arr)
 
 
